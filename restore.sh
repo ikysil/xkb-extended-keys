@@ -1,10 +1,11 @@
-#!/bin/env bash
+#!/usr/bin/env bash
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+OUTPUT_DIR="$SCRIPT_DIR/build"
+BACKUP_FILE="$OUTPUT_DIR/backup"
 
-backupFile=${HOME}/.xkb/keymap/xkbBackup
-if [ -f $backupFile ];
-then
+if [ -f $BACKUP_FILE ]; then
   # Compile the backup XKB configuration
-  xkbcomp -I$HOME/.xkb ~/.xkb/keymap/xkbBackup $DISPLAY
+  xkbcomp -I"$SCRIPT_DIR" "$BACKUP_FILE" $DISPLAY
 else
-  echo File $backupFile does not exist.
+  echo File $BACKUP_FILE does not exist.
 fi
