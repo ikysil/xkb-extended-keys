@@ -67,7 +67,10 @@ xkb_symbols "Fn" {
     // Set Caps_Lock in an unused key
     key <SCLK> { type= "ONE_LEVEL", symbols[Group1]=    [  Caps_Lock        ]   };
 
+    // Original level5 definition:
     include "levelFn(caps_switch)"
+    // Version copied from https://github.com/DreymaR/BigBagKbdTricks_XKB
+    // include "level5(caps_switch)"
     // Explanation: Includes another configuration file in which the modifier mapping is done
     // This could be directly written here, but it is kept in a different file for clarity
 };
